@@ -1,1 +1,67 @@
+clear all
+clc
+syms x
+f=input ('Enter the function : ')
+df=diff(f);
+f=inline(f);
+df=inline(df);
+x=input ('enter start point : ');
+n=input('enter the iteration : ');
+t=input('minimum level of tolerance : ');
+for i=2:n
+    x(i)=x(i-1)-(f(x(i-1))/df(x(i-1)));
+    err=abs(x(i)-x(i-1))*100;
+    if err<=t
+        disp('The root is : ')
+        disp(x(i))
+        break
+    end 
+end 
+if err>t
+    disp('the root not found ')
+end 
+%% The example
+x=0.01:0.01:1;
+f=x.*sin(pi*x)-exp(-x);
+plot(x,f)
+grid on 
+***********************************************************
+clear all
+clc
+syms x
+f=input ('Enter the function : ')
+df=diff(f);
+f=inline(f);
+df=inline(df);
+x=input ('Enter start point : ');
+n=input('Enter the iteration number : ');
+t=input('Minimum level of tolerance : ')
+
+ 
+
+for i=2:n %the reason why we started from 2 not 1 ,because i will give the program x0 he will give me x1 
+    i
+
+    x(i)=x(i-1)-(f(x(i-1))/df(x(i-1)));
+    error=abs(x(i)-x(i-1))
+    
+    if error<=t
+        
+        disp('The root is : ')
+        disp(x(i))
+        
+        
+        break
+    end 
+end 
+if error>t
+    disp('the root not found ')
+end 
+
+%% The example
+x=0.01:0.01:1;
+f=x.*x-2;
+plot(x,f)
+grid on 
+
 
